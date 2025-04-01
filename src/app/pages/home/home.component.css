@@ -1,0 +1,79 @@
+.hero-container {
+    width: 100%;
+    background: url('/assets/images/cabecera.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  
+  /* Overlay para oscurecer la imagen y resaltar el texto */
+  .hero-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(39, 68, 93, 0.1); /* Usando el color primario con opacidad */
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #EFE9D5; /* Color de texto complementario */
+    padding: 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Personalización del botón */
+  .hero-button {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    /* Podemos dejar que el tema de Angular Material maneje el fondo y color, o forzarlo: */
+    background: linear-gradient(to right, #27445D, #5f85a6) ;
+    color: #EFE9D5 ;
+  }
+  
+  .hero-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  }
+  
+  .section-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.section-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Opcional: puedes agregar bordes redondeados o ajustar padding */
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}

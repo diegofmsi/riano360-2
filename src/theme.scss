@@ -1,0 +1,88 @@
+@use '@angular/material' as mat;
+
+// Definir una paleta de colores personalizada para "primary"
+$custom-primary: mat.define-palette((
+  50: #EFE9D5,
+  100: #EFE9D5,
+  200: #EFE9D5,
+  300: #497D74,
+  400: #497D74,
+  500: #27445D, // Color principal
+  600: #27445D,
+  700: #27445D,
+  800: #27445D,
+  900: #27445D,
+  A100: #71BBB2,
+  A200: #71BBB2,
+  A400: #71BBB2,
+  A700: #71BBB2,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: black,
+    A400: black,
+    A700: black,
+  )
+));
+
+// Para la paleta de acento usaremos el color Acento
+$custom-accent: mat.define-palette((
+  50: #71BBB2,
+  100: #71BBB2,
+  200: #71BBB2,
+  300: #497D74,
+  400: #497D74,
+  500: #27445D,
+  600: #27445D,
+  700: #27445D,
+  800: #27445D,
+  900: #27445D,
+  A100: #EFE9D5,
+  A200: #EFE9D5,
+  A400: #EFE9D5,
+  A700: #EFE9D5,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: black,
+    A400: black,
+    A700: black,
+  )
+));
+
+// Definir el tema claro usando las paletas anteriores
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: mat.define-palette(mat.$red-palette),
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Incluir los estilos globales para los componentes de Angular Material
+@include mat.all-component-themes($custom-theme);
+
+/* Reseteo global */
+
+
+
