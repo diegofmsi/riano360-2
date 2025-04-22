@@ -1,8 +1,127 @@
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    padding: 20px;
+/* Variables de color personalizadas para Riaño */
+:host {
+  --primary-color: #1a4c84;     /* Azul más profundo como el embalse */
+  --accent-color: #2d8a4e;      /* Verde bosque */
+  --secondary-color: #f0b429;   /* Amarillo montaña */
+  --background-light: #f8f9fa;  /* Fondo suave */
+  --text-dark: #2d3748;         /* Texto principal */
+  --shadow-color: rgba(26, 76, 132, 0.15);
+}
+
+/* Contenedor principal con grid responsive */
+.recorridos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+}
+
+/* Estilos de la tarjeta */
+.recorrido-card {
+  background: white;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.recorrido-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+
+/* Cabecera de la tarjeta */
+.recorrido-card mat-card-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.recorrido-card mat-card-title {
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.recorrido-card mat-card-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Contenedor del mapa */
+.mapa-container {
+  margin: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid var(--background-light);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Descripción */
+.descripcion {
+  padding: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  border-left: 4px solid var(--accent-color);
+  margin: 1.5rem;
+  background-color: rgba(45, 138, 78, 0.05);
+}
+
+/* Botones de acción */
+mat-card-actions {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--background-light);
+}
+
+mat-card-actions button[mat-button] {
+  flex: 1;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+mat-card-actions button[mat-button][color="primary"] {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+mat-card-actions button[mat-button][color="accent"] {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Efectos hover para los botones */
+mat-card-actions button[mat-button]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .recorridos-container {
+    padding: 1rem;
+    gap: 1.5rem;
   }
-  
+
+  .recorrido-card mat-card-title {
+    font-size: 1.5rem;
+  }
+
+  mat-card-actions {
+    flex-direction: column;
+  }
+}

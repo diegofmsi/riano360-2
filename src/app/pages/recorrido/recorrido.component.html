@@ -1,15 +1,36 @@
 <div class="card-container">
   <!-- Tarjeta para la ruta de Carrera (Santi) -->
-  <mat-card class="wikiloc-card">
-    <iframe frameBorder="" scrolling="no" src="https://es.wikiloc.com/wikiloc/embedv2.do?id=62876645&elevation=on&images=off&maptype=H" width="600" height="500"></iframe><div style="color:#777;font-size:11px;line-height:16px;">Powered by&nbsp;<a style="color:#4C8C2B;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
-  </mat-card>
+  <div class="recorridos-container">
+  <mat-card class="recorrido-card">
+    <mat-card-header>
+      <mat-card-title>La Ruta de Santi</mat-card-title>
+      <mat-card-subtitle>
+        <mat-icon>directions_run</mat-icon>Carrera
+        <mat-icon>terrain</mat-icon> Dificultad: Muy Difícil | 
+        <mat-icon>straighten</mat-icon> 91,45km | 
+        <mat-icon>timer</mat-icon> 18h
+      </mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="mapa-container">
+        <!-- Aquí puedes integrar tu propio mapa usando leaflet o Google Maps -->
+        <div id="mapa" style="height: 500px;"></div>
+      </div>
+      <p class="descripcion">
+        Hermoso recorrido alrededor del embalse de Riaño, perfecto para disfrutar 
+        de las vistas panorámicas y la naturaleza. Ideal para realizar en familia.
+        O del tirón si eres un aventurero, como Santi.
+      </p>
+    </mat-card-content>
 
-  <mat-card class="wikiloc-card">
-    <iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/embedv2.do?id=62876645&elevation=on&images=off&maptype=H" width="600" height="500"></iframe><div style="color:#777;font-size:11px;line-height:16px;">Powered by&nbsp;<a style="color:#4C8C2B;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
+    <mat-card-actions>
+      <a mat-button color="primary" href="https://es.wikiloc.com/wikiloc/view.do?id=62876645" target="_blank">
+        <mat-icon>map</mat-icon> VER EN WIKILOC
+      </a>
+      <a mat-button color="accent" href="assets/tracks/riaño360original.kml" download>
+        <mat-icon>download</mat-icon> DESCARGAR TRACK
+      </a>
+    </mat-card-actions>
   </mat-card>
- 
-  <mat-card class="wikiloc-card">
-    <iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/embedv2.do?id=62876645&elevation=on&images=off&maptype=H" width="600" height="500"></iframe><div style="color:#777;font-size:11px;line-height:16px;">Powered by&nbsp;<a style="color:#4C8C2B;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
-  </mat-card>
-  
 </div>

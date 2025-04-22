@@ -1,0 +1,93 @@
+.main-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilos para la sección de pueblos */
+.pueblos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.pueblo-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.pueblo-card:hover {
+  transform: translateY(-5px);
+}
+
+.pueblo-card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Estilos para la sección de entorno */
+.entorno-section {
+  margin-top: 40px;
+}
+
+.entorno-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Estilos para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.tab-content {
+  padding: 20px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .pueblos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .entorno-content {
+    grid-template-columns: 1fr;
+  }
+}

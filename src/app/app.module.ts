@@ -16,6 +16,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+
 
   
 
@@ -30,6 +33,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     PueblosEntornoComponent,
     PlanificadorComponent,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatIconModule,
     MatCardModule,
     MatTabsModule,
+    MatListModule,
+    MatExpansionModule
   
   ],
   providers: [],

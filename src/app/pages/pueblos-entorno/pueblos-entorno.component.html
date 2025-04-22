@@ -1,1 +1,113 @@
-<p>pueblos-entorno works!</p>
+<!-- pueblos-entorno.component.html -->
+<div class="main-container">
+  <!-- Sección de Pueblos -->
+  <section class="pueblos-section">
+    <h2 class="mat-headline-4">Pueblos de la Montaña Leonesa</h2>
+    <div class="pueblos-grid">
+      <mat-card class="pueblo-card" *ngFor="let pueblo of pueblos" (click)="verDetalle(pueblo)">
+        <img mat-card-image [src]="pueblo.imagenUrl" [alt]="pueblo.nombre">
+        <mat-card-content>
+          <h3>{{ pueblo.nombre }}</h3>
+          <p>{{ pueblo.descripcion | slice:0:50 }}...</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Sección del Entorno Natural -->
+  <section class="entorno-section">
+    <h2 class="mat-headline-4">Entorno Natural</h2>
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Fauna">
+        <div class="entorno-content">
+          <mat-card *ngFor="let animal of fauna">
+            <img mat-card-image [src]="animal.imagen" [alt]="animal.nombre">
+            <mat-card-content>
+              <h3>{{animal.nombre}}</h3>
+              <p>{{animal.descripcion}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Flora">
+        <div class="entorno-content">
+          <mat-card *ngFor="let planta of flora">
+            <img mat-card-image [src]="planta.imagen" [alt]="planta.nombre">
+            <mat-card-content>
+              <h3>{{planta.nombre}}</h3>
+              <p>{{planta.descripcion}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Montañas">
+        <div class="entorno-content">
+          <mat-card *ngFor="let montana of montanas">
+            <img mat-card-image [src]="montana.imagen" [alt]="montana.nombre">
+            <mat-card-content>
+              <h3>{{montana.nombre}}</h3>
+              <p>{{montana.descripcion}}</p>
+              <p>Altura: {{montana.altura}} m</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Bosques">
+        <div class="entorno-content">
+          <mat-card *ngFor="let bosque of bosques">
+            <img mat-card-image [src]="bosque.imagen" [alt]="bosque.nombre">
+            <mat-card-content>
+              <h3>{{bosque.nombre}}</h3>
+              <p>{{bosque.descripcion}}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </section>
+
+  <!-- Modal para detalles del pueblo -->
+  <div *ngIf="puebloSeleccionado" class="modal-overlay" (click)="puebloSeleccionado = null">
+    <mat-card class="modal-card" (click)="$event.stopPropagation()">
+      <button mat-icon-button class="close-button" (click)="puebloSeleccionado = null">
+        <mat-icon>close</mat-icon>
+      </button>
+
+      <img [src]="puebloSeleccionado.imagenUrl" [alt]="puebloSeleccionado.nombre" class="modal-image">
+      
+      <mat-card-content class="modal-content">
+        <h2>{{puebloSeleccionado.nombre}}</h2>
+        <mat-tab-group>
+          <mat-tab label="Información">
+            <div class="tab-content">
+              <p>{{puebloSeleccionado.descripcion}}</p>
+              <h3>Historia</h3>
+              <p>{{puebloSeleccionado.historia}}</p>
+            </div>
+          </mat-tab>
+          
+          <mat-tab label="Lugares de interés">
+            <div class="tab-content">
+              <mat-list>
+                <mat-list-item *ngFor="let lugar of puebloSeleccionado.lugares">
+                  <mat-icon matListItemIcon>place</mat-icon>
+                  <span>{{lugar}}</span>
+                </mat-list-item>
+              </mat-list>
+            </div>
+          </mat-tab>
+
+          <mat-tab label="Ubicación">
+            <div class="tab-content">
+              <p>Coordenadas: {{puebloSeleccionado.coordenadas.latitud}}, {{puebloSeleccionado.coordenadas.longitud}}</p>
+              <!-- Aquí podrías añadir un mapa -->
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
