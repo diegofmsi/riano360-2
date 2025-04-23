@@ -33,3 +33,38 @@
   <h2>Página en construcción</h2>
   <p>El planificador estará disponible próximamente...</p>
 </div>
+
+<div class="planificador-container">
+  <mat-drawer-container>
+    <mat-drawer mode="side" opened>
+      <mat-nav-list>
+        <h3 matSubheader>Capas</h3>
+        <mat-list-item>
+          <mat-checkbox>Cimas</mat-checkbox>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-checkbox>Restaurantes</mat-checkbox>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-checkbox>Alojamientos</mat-checkbox>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-checkbox>Zonas de acampada</mat-checkbox>
+        </mat-list-item>
+      </mat-nav-list>
+
+      <mat-divider></mat-divider>
+
+      <div class="route-info" *ngIf="route.length > 0">
+        <h3>Información de la ruta</h3>
+        <p>Distancia: {{routeDistance}} km</p>
+        <p>Desnivel: {{elevation}} m</p>
+        <p>Tiempo estimado: {{estimatedTime}} h</p>
+      </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <div id="map"></div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

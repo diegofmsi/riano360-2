@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; padding: 0; background-color: #27445D; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  padding: 0; 
+  background-color: #27445D; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  margin-top: 64px; /* altura del toolbar */
+  min-height: 100vh;
+}
 
