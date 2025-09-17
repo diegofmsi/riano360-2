@@ -41,9 +41,30 @@ Sigue este viaje único por los pueblos de Vegacerneja, Liegos, Salamón, Las Sa
         </div>
         <div class="detalle-item">
           <mat-icon>person</mat-icon>
-          <span>Director: [Nombre del Director]</span>
+          <span>Director: Russell Pictures</span>
         </div>
       </div>
     </mat-card-content>
   </mat-card>
+
+  <!-- Galería del documental -->
+<section class="documental-gallery">
+  <h3>Galería del documental</h3>
+
+  <div class="thumbs">
+    <img *ngFor="let img of images; let i = index"
+         [src]="img.src"
+         [alt]="img.alt"
+         (click)="openGallery(i)"
+         class="thumb" />
+  </div>
+
+  <div class="lightbox" *ngIf="currentImage">
+    <button class="close" (click)="closeGallery()" aria-label="Cerrar">✕</button>
+    <button class="nav prev" (click)="prevImage()" [disabled]="currentImageIndex===0" aria-label="Anterior">‹</button>
+    <img class="full" [src]="currentImage.src" [alt]="currentImage.alt" />
+    <button class="nav next" (click)="nextImage()" [disabled]="currentImageIndex===images.length-1" aria-label="Siguiente">›</button>
+    <p class="caption">{{ currentImage.caption }}</p>
+  </div>
+</section>
 </div>

@@ -16,7 +16,11 @@ interface POI {
 })
 export class PlanificadorComponent implements OnInit {
   private map!: L.Map;
-  private route: L.Polyline[] = [];
+  route: L.Polyline[] = [];
+  // Propiedades que usa la plantilla
+  routeDistance: number = 0;
+  elevation: number = 0;
+  estimatedTime: number = 0;
   
   puntosInteres: POI[] = [
     {
@@ -49,7 +53,9 @@ export class PlanificadorComponent implements OnInit {
     }).addTo(this.map);
 
     // Añadir controles de dibujo
-    const drawControl = new L.Control.Draw({
+    // L.Control.Draw no tiene tipos expuestos aquí, usar any para evitar error de compilación
+    const DrawControl: any = (L as any).Control?.Draw || (L as any).Draw || undefined;
+    const drawControl: any = DrawControl ? new DrawControl({
       draw: {
         marker: true,
         polyline: true,
@@ -58,8 +64,10 @@ export class PlanificadorComponent implements OnInit {
         polygon: false,
         circlemarker: false
       }
-    });
-    this.map.addControl(drawControl);
+    }) : null;
+    if (drawControl) {
+      this.map.addControl(drawControl);
+    }
   }
 
   private addPOIs(): void {

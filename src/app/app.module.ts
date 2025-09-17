@@ -18,6 +18,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
   
@@ -46,6 +48,9 @@ import { MatListModule } from '@angular/material/list';
     MatTabsModule,
     MatListModule,
     MatExpansionModule
+  ,
+  MatSidenavModule,
+  MatCheckboxModule
   
   ],
   providers: [],
