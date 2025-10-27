@@ -1,127 +1,153 @@
-/* Variables de color personalizadas para Riaño */
-:host {
-  --primary-color: #1a4c84;     /* Azul más profundo como el embalse */
-  --accent-color: #2d8a4e;      /* Verde bosque */
-  --secondary-color: #f0b429;   /* Amarillo montaña */
-  --background-light: #f8f9fa;  /* Fondo suave */
-  --text-dark: #2d3748;         /* Texto principal */
-  --shadow-color: rgba(26, 76, 132, 0.15);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@600;700&display=swap');
+
+/* --- Fondo general centrado y ancho adaptable --- */
+.card-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #27445D 0%, #1c2f3d 100%);
+  color: #e0e0e0;
+  font-family: "Poppins", sans-serif;
+  padding: 4rem clamp(1rem, 5vw, 6rem);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* Contenedor principal con grid responsive */
+/* --- Contenedor principal de recorridos --- */
 .recorridos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  padding: 2rem;
-  background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
 }
 
-/* Estilos de la tarjeta */
+/* --- Tarjeta principal del recorrido --- */
 .recorrido-card {
-  background: white;
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px var(--shadow-color);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
 }
 
 .recorrido-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 12px 30px var(--shadow-color);
+  transform: translateY(-8px);
+  border-color: #81c784;
+  box-shadow: 0 12px 40px rgba(129, 199, 132, 0.25);
 }
 
-/* Cabecera de la tarjeta */
+/* --- Cabecera del recorrido --- */
 .recorrido-card mat-card-header {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
-  padding: 1.5rem;
-  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #27445D, #3a607a);
+  padding: 1.8rem;
 }
 
 .recorrido-card mat-card-title {
-  color: white;
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+  font-family: 'Raleway', sans-serif;
+  color: #81c784;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(129, 199, 132, 0.3);
 }
 
 .recorrido-card mat-card-subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: #e0e0e0;
   font-size: 1rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
 }
 
-/* Contenedor del mapa */
+.recorrido-card mat-card-subtitle mat-icon {
+  color: #81c784;
+  vertical-align: middle;
+}
+
+/* --- Mapa --- */
 .mapa-container {
-  margin: 1rem;
-  border-radius: 12px;
+  margin: 2rem;
+  border-radius: 16px;
   overflow: hidden;
-  border: 3px solid var(--background-light);
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  border: 2px solid rgba(129, 199, 132, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Descripción */
+/* --- Descripción del recorrido --- */
 .descripcion {
-  padding: 1.5rem;
-  line-height: 1.8;
-  color: var(--text-dark);
   font-size: 1.1rem;
-  border-left: 4px solid var(--accent-color);
-  margin: 1.5rem;
-  background-color: rgba(45, 138, 78, 0.05);
+  line-height: 1.7;
+  margin: 1.5rem 2rem;
+  color: #f5f5f5;
+  border-left: 4px solid #81c784;
+  padding-left: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
 }
 
-/* Botones de acción */
+/* --- Botones de acción --- */
 mat-card-actions {
-  padding: 1.5rem;
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  background-color: var(--background-light);
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: rgba(39, 68, 93, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-mat-card-actions button[mat-button] {
-  flex: 1;
+mat-card-actions a[mat-button] {
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-transform: uppercase;
   transition: all 0.3s ease;
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(90deg, #27445D, #3a607a);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-mat-card-actions button[mat-button][color="primary"] {
-  background-color: var(--primary-color);
-  color: white;
+mat-card-actions a[mat-button]:hover {
+  background: linear-gradient(90deg, #3a607a, #5f85a6);
+  color: #ffffff;
+  border-color: #81c784;
+  box-shadow: 0 8px 25px rgba(129, 199, 132, 0.3);
+  transform: translateY(-3px);
 }
 
-mat-card-actions button[mat-button][color="accent"] {
-  background-color: var(--accent-color);
-  color: white;
+mat-card-actions a[mat-button] mat-icon {
+  color: #81c784;
 }
 
-/* Efectos hover para los botones */
-mat-card-actions button[mat-button]:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .card-container {
+    padding: 2rem;
+  }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .recorridos-container {
-    padding: 1rem;
-    gap: 1.5rem;
+  .recorrido-card {
+    max-width: 95%;
   }
 
   .recorrido-card mat-card-title {
     font-size: 1.5rem;
   }
 
-  mat-card-actions {
-    flex-direction: column;
+  .descripcion {
+    margin: 1rem;
+    font-size: 1rem;
   }
 }

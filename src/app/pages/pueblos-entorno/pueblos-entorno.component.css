@@ -1,93 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@600;700&display=swap');
+
+/* Fondo general centrado y ancho adaptable */
 .main-container {
-  padding: 20px;
-  max-width: 1200px;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #27445D 0%, #1c2f3d 100%);
+  color: #e0e0e0;
+  font-family: "Poppins", sans-serif;
+  padding: 4rem clamp(1rem, 5vw, 6rem);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra todo el contenido horizontalmente */
+}
+
+/* Contenido centrado con ancho fluido */
+.main-container > section {
+  width: 100%;
+  max-width: 1800px; /* límite para pantallas muy grandes */
   margin: 0 auto;
 }
 
-/* Estilos para la sección de pueblos */
+/* Títulos principales */
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #81c784;
+  text-shadow: 0 0 10px rgba(129, 199, 132, 0.3);
+  text-transform: uppercase;
+}
+
+/* --- Pueblos --- */
 .pueblos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 🔼 antes 280px */
+  gap: 40px;                 /* más espacio entre ellas */
+  justify-content: center;
+  align-items: start;
+  margin: 0 auto;
+  padding: 30px 0;
+  max-width: 1700px;         /* 🔼 más ancho total */
 }
 
 .pueblo-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  max-width: 360px;          /* 🔼 tamaño máximo aumentado */
+  margin: 0 auto;
 }
 
 .pueblo-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.05); /* hover un poco más marcado */
+  border-color: #81c784;
+  box-shadow: 0 8px 25px rgba(129, 199, 132, 0.3);
 }
 
-.pueblo-card img {
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(129, 199, 132, 0.15);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 14px 16px;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-size: 1.3rem;       /* 🔼 texto un poco más grande */
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+}
+
+.overlay p {
+  font-size: 1rem;         /* 🔼 texto un pelín mayor */
+  color: #cfcfcf;
+}
+
+
+/* --- Entorno Natural --- */
+/* --- Contenedor de entorno con ancho fijo y transición suave --- */
+.entorno-section {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Fijamos el ancho máximo y evitamos saltos entre tabs */
+.entorno-section .mat-mdc-tab-group {
+  width: 100%;
+  max-width: 1600px;  /* ancho fijo central */
+  margin: 0 auto;
+}
+
+/* Forzamos que el contenedor interno mantenga la alineación */
+.entorno-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content: center;
+  align-items: start;
+  gap: 40px;
+  width: 100%;
+  min-height: 500px;       /* evita el salto al cambiar de pestaña */
+  margin: 40px auto;
+  padding: 20px clamp(1rem, 5vw, 6rem);
+  transition: min-height 0.4s ease;  /* animación suave al cambiar tab */
+  box-sizing: border-box;
+  background: transparent;  /* sin color adicional */
+}
+
+/* --- Tarjetas del entorno --- */
+.entorno-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(129, 199, 132, 0.15);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding-bottom: 10px;
+  max-width: 320px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.entorno-card:hover {
+  transform: scale(1.03);
+  border-color: #81c784;
+  box-shadow: 0 8px 25px rgba(129, 199, 132, 0.25);
+}
+
+.entorno-card img {
   height: 200px;
   object-fit: cover;
+  width: 100%;
 }
 
-/* Estilos para la sección de entorno */
+.entorno-card mat-card-content {
+  padding: 15px 20px;
+}
+
+.altura {
+  font-style: italic;
+  color: #81c784;
+  margin-top: 8px;
+  display: block;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .pueblos-grid,
+  .entorno-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .pueblo-card,
+  .entorno-card {
+    max-width: 90%;
+  }
+}
+/* --- Tabs principales (Fauna, Flora, Montañas, Bosques) --- */
+::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+  color: #81c784 !important;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+::ng-deep .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: #a5d6a7 !important;
+  text-shadow: 0 0 8px rgba(129, 199, 132, 0.4);
+  transform: scale(1.05);
+}
+
+::ng-deep .mat-mdc-tab:hover .mdc-tab__text-label {
+  color: #a5d6a7 !important;
+}
+
+/* Barra inferior verde */
+::ng-deep .mat-mdc-tab-indicator .mat-mdc-tab-indicator__content--underline {
+  border-color: #81c784 !important;
+  border-width: 3px !important;
+  border-radius: 2px;
+}
+
+/* --- Contenedor de entorno centrado y ancho adaptable --- */
 .entorno-section {
-  margin-top: 40px;
+  width: 100%;
+  margin-top: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .entorno-content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-content: center;
+  gap: 40px;
+  margin: 40px auto;
+  padding: 20px clamp(1rem, 5vw, 6rem);
+  max-width: 1600px;
 }
 
-/* Estilos para el modal */
+/* Tarjetas del entorno */
+.entorno-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(129, 199, 132, 0.15);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding-bottom: 10px;
+  max-width: 320px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.entorno-card:hover {
+  transform: scale(1.04);
+  border-color: #81c784;
+  box-shadow: 0 8px 25px rgba(129, 199, 132, 0.25);
+}
+
+.entorno-card img {
+  height: 210px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.entorno-card mat-card-content {
+  padding: 15px 20px;
+}
+
+.altura {
+  font-style: italic;
+  color: #81c784;
+  margin-top: 8px;
+  display: block;
+}
+
+/* --- Modal centrado con fondo #27445D --- */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  inset: 0;
+  background: rgba(15, 25, 35, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s ease;
 }
 
 .modal-card {
+  background: linear-gradient(180deg, #27445D 0%, #1c2f3d 100%);
+  border-radius: 20px;
+  overflow: hidden;
   width: 90%;
-  max-width: 800px;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-width: 900px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  animation: scaleUp 0.3s ease;
   position: relative;
+  border: 1px solid rgba(129, 199, 132, 0.3);
+  color: #e0e0e0;
 }
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 1;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #81c784;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  transition: background 0.2s;
+}
+
+.close-button:hover {
+  background: rgba(129, 199, 132, 0.25);
 }
 
 .modal-image {
   width: 100%;
-  max-height: 400px;
+  max-height: 380px;
   object-fit: cover;
 }
 
 .modal-content {
-  padding: 20px;
+  padding: 25px;
+}
+
+.modal-content h2 {
+  text-align: center;
+  color: #81c784;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 1rem;
+}
+
+/* Tabs del modal */
+::ng-deep .modal-tabs .mat-mdc-tab .mdc-tab__text-label {
+  color: #81c784 !important;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+::ng-deep .modal-tabs .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: #a5d6a7 !important;
+  text-shadow: 0 0 8px rgba(129, 199, 132, 0.4);
+  transform: scale(1.05);
+}
+
+::ng-deep .modal-tabs .mat-mdc-tab-indicator .mat-mdc-tab-indicator__content--underline {
+  border-color: #81c784 !important;
+  border-width: 3px !important;
+}
+
+/* Texto dentro del modal */
+.modal-content h3 {
+  color: #81c784;
+  margin-top: 15px;
+  font-weight: 600;
 }
 
 .tab-content {
-  padding: 20px;
+  padding: 15px 10px;
+  text-align: left;
 }
 
-/* Estilos responsivos */
-@media (max-width: 600px) {
-  .pueblos-grid {
-    grid-template-columns: 1fr;
-  }
+/* Lista de lugares */
+.lugar-list {
+  list-style: none;
+  padding: 0;
+}
 
+.lugar-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e0e0e0;
+}
+
+.lugar-list mat-icon {
+  color: #81c784;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
   .entorno-content {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .entorno-card {
+    max-width: 90%;
+  }
+
+  .modal-card {
+    width: 95%;
   }
 }

@@ -1,79 +1,111 @@
-.hero-container {
-    width: 100%;
-    background: url('/assets/images/cabecera.jpg') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: top;
-    position: relative;
-  }
-  
-  
-  /* Overlay para oscurecer la imagen y resaltar el texto */
-  .hero-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(39, 68, 93, 0.1); /* Usando el color primario con opacidad */
-    z-index: 1;
-  }
-  
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: #EFE9D5; /* Color de texto complementario */
-    padding: 20px;
-  }
-  
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Personalización del botón */
-  .hero-button {
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding: 12px 24px;
-    border-radius: 30px;
-    text-transform: uppercase;
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    /* Podemos dejar que el tema de Angular Material maneje el fondo y color, o forzarlo: */
-    background: linear-gradient(to right, #27445D, #5f85a6) ;
-    color: #EFE9D5 ;
-  }
-  
-  .hero-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
-  }
-  
-  .section-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 50px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Raleway:wght@600;700&display=swap');
 
-.section-button {
+/* --- Hero principal --- */
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: 
+    linear-gradient(180deg, rgba(39, 68, 93, 0.1), rgba(28, 47, 61, 0.1)),
+    url('/assets/images/cabecera.jpg') no-repeat center center / cover;
   display: flex;
   align-items: center;
-  gap: 8px;
-  /* Opcional: puedes agregar bordes redondeados o ajustar padding */
-  padding: 12px 20px;
-  border-radius: 30px;
+  justify-content: center;
+  color: #e0e0e0;
+  overflow: hidden;
+}
+
+/* --- Overlay dinámico con desenfoque --- */
+.hero-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(39, 68, 93, 0.2);
+    z-index: 1;
+}
+
+/* --- Contenido centrado --- */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: auto;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-content h1 {
+  font-family: 'Raleway', sans-serif;
+  color: #81c784;
+  font-size: clamp(2rem, 5vw, 4rem);
   text-transform: uppercase;
-  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(129, 199, 132, 0.4);
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: #f5f5f5;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* --- Botones principales --- */
+.section-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.hero-button {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  background: linear-gradient(90deg, #27445D, #3a607a);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-button:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: linear-gradient(90deg, #3a607a, #5f85a6);
+  box-shadow: 0 8px 25px rgba(129, 199, 132, 0.3);
+  border-color: #81c784;
+  color: #ffffff;
+}
+
+/* --- Íconos dentro de botones --- */
+.hero-button mat-icon {
+  font-size: 1.6rem;
+  color: #81c784;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 700px) {
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
 }

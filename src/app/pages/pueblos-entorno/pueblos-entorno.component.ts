@@ -35,7 +35,7 @@ export class PueblosEntornoComponent implements OnInit {
       id: 1,
       nombre: 'Vegacerneja',
       descripcion: 'Pequeño pueblo situado en la confluencia de los ríos Yuso y Esla.',
-      imagenUrl: 'assets/images/vegacerneja.jpg',
+      imagenUrl: 'assets/images/pueblos/vegacerneja.jpg',
       historia: 'Vegacerneja es un pueblo con rica historia ganadera y fue un importante punto de paso de la trashumancia.',
       lugares: ['Iglesia parroquial', 'Puente medieval', 'Mirador del valle'],
       coordenadas: {
@@ -47,7 +47,7 @@ export class PueblosEntornoComponent implements OnInit {
       id: 2,
       nombre: 'Liegos',
       descripcion: 'Pintoresco pueblo de montaña con vistas espectaculares a los Picos de Europa.',
-      imagenUrl: 'assets/images/liegos.jpg',
+      imagenUrl: 'assets/images/pueblos/liegos.JPG',
       historia: 'Liegos conserva construcciones tradicionales de arquitectura leonesa de montaña.',
       lugares: ['Iglesia de San Tirso', 'Mirador del Pico Jario', 'Bosque de robles centenarios'],
       coordenadas: {
@@ -59,7 +59,7 @@ export class PueblosEntornoComponent implements OnInit {
       id: 3,
       nombre: 'Salamón',
       descripcion: 'Encantador pueblo en el valle del Esla con gran patrimonio cultural.',
-      imagenUrl: 'assets/images/salamon.jpg',
+      imagenUrl: 'assets/images/pueblos/salamon.jpg',
       historia: 'Salamón tiene orígenes medievales y fue un importante centro administrativo de la zona.',
       lugares: ['Iglesia románica', 'Casas blasonadas', 'Molino tradicional'],
       coordenadas: {
@@ -71,7 +71,7 @@ export class PueblosEntornoComponent implements OnInit {
       id: 4,
       nombre: 'Las Salas',
       descripcion: 'Población con abundante patrimonio histórico y arquitectónico.',
-      imagenUrl: 'assets/images/las-salas.jpg',
+      imagenUrl: 'assets/images/pueblos/las-salas.png',
       historia: 'Las Salas fue sede de un importante monasterio benedictino y conserva vestigios medievales.',
       lugares: ['Torre medieval', 'Santuario de la Virgen de Roblo', 'Casonas nobiliarias'],
       coordenadas: {
@@ -83,7 +83,7 @@ export class PueblosEntornoComponent implements OnInit {
       id: 5,
       nombre: 'Horcadas',
       descripcion: 'Pueblo ubicado en un entorno natural privilegiado cerca del Pantano de Riaño.',
-      imagenUrl: 'assets/images/horcadas.jpg',
+      imagenUrl: 'assets/images/pueblos/horcadas.png',
       historia: 'Horcadas mantiene vivas tradiciones ancestrales y festejos populares de gran interés.',
       lugares: ['Iglesia parroquial', 'Mirador del embalse', 'Senderos de montaña'],
       coordenadas: {
@@ -95,7 +95,7 @@ export class PueblosEntornoComponent implements OnInit {
       id: 6,
       nombre: 'Carande',
       descripcion: 'Pequeña localidad con gran encanto rural y paisajístico.',
-      imagenUrl: 'assets/images/carande.jpg',
+      imagenUrl: 'assets/images/pueblos/carande.png',
       historia: 'Carande fue un importante asentamiento en la ruta hacia Asturias desde tiempos romanos.',
       lugares: ['Puente medieval', 'Ermita rupestre', 'Antigua calzada'],
       coordenadas: {
@@ -107,7 +107,7 @@ export class PueblosEntornoComponent implements OnInit {
       id: 7,
       nombre: 'Boca de Huérgano',
       descripcion: 'Capital del municipio, situada en un enclave estratégico entre valles.',
-      imagenUrl: 'assets/images/boca-de-huergano.jpg',
+      imagenUrl: 'assets/images/pueblos/boca-de-huergano.jpg',
       historia: 'Boca de Huérgano fue un importante centro administrativo y comercial de la comarca.',
       lugares: ['Ayuntamiento histórico', 'Iglesia de San Vicente', 'Casa del Parque Natural'],
       coordenadas: {
@@ -118,9 +118,9 @@ export class PueblosEntornoComponent implements OnInit {
     {
         id: 8,
         nombre: 'Riaño',
-        descripcion: 'Capital del municipio, situada en un enclave estratégico entre valles.',
-        imagenUrl: 'assets/images/boca-de-huergano.jpg',
-        historia: 'Boca de Huérgano fue un importante centro administrativo y comercial de la comarca.',
+        descripcion: 'Pueblo a orillas del embalse de Riaño, conocido por su paisaje lacustre y montañoso. Reconstruido tras la antigua inundación, es hoy un centro turístico y cultural que sirve de puerta de entrada al Parque Regional de los Picos de Europa.',
+        imagenUrl: 'assets/images/pueblos/riaño.jpg',
+        historia: 'Riaño fue trasladado y parcialmente reconstruido tras la construcción del embalse en los años 80. Desde entonces ha recuperado actividad económica y turística, preservando tradiciones locales y desarrollando iniciativas para la promoción del patrimonio natural y cultural de la comarca.',
         lugares: ['Iglesia de San Martín de Pedrosa del Rey', 'iglesia de Nuestra Señora del Rosario', 'Museo Etnográfico Comarcal de Riaño'],
         coordenadas: {
           latitud: 42.9747,
@@ -133,12 +133,12 @@ export class PueblosEntornoComponent implements OnInit {
     {
       nombre: 'Oso Pardo',
       descripcion: 'Especie emblemática de la Cordillera Cantábrica, protegida y en recuperación.',
-      imagen: 'assets/images/fauna/oso-pardo.jpg'
+      imagen: 'assets/images/fauna/oso-pardo.png'
     },
     {
-      nombre: 'Urogallo Cantábrico',
-      descripcion: 'Ave en peligro de extinción que habita en los bosques maduros de la zona.',
-      imagen: 'assets/images/fauna/urogallo.jpg'
+      nombre: 'Ciervo',
+      descripcion: 'Ungulado de gran tamaño; en otoño se puede disfrutar del espectáculo de la berrea.',
+      imagen: 'assets/images/fauna/ciervo.jpg'
     },
     {
       nombre: 'Rebeco',
@@ -161,39 +161,48 @@ export class PueblosEntornoComponent implements OnInit {
     {
       nombre: 'Roble Albar',
       descripcion: 'Especie característica de los bosques montanos, de gran valor ecológico.',
-      imagen: 'assets/images/flora/roble.jpg'
+      imagen: 'assets/images/flora/roble-albar.jpg'
     },
     {
       nombre: 'Acebo',
       descripcion: 'Arbusto perenne protegido, importante para la fauna local.',
       imagen: 'assets/images/flora/acebo.jpg'
     },
-    {
-      nombre: 'Genciana',
-      descripcion: 'Planta medicinal típica de los prados de alta montaña.',
-      imagen: 'assets/images/flora/genciana.jpg'
-    }
+    
   ];
 
   montanas: Montana[] = [
     {
       nombre: 'Pico Gilbo',
-      descripcion: 'Montaña emblemática que domina el valle de Riaño.',
+      descripcion: 'Cima emblemática que domina el valle de Riaño, accesible y con buenas vistas.',
       imagen: 'assets/images/montanas/gilbo.jpg',
-      altura: 1679
+      altura: 1667
     },
     {
-      nombre: 'Torre del Friero',
-      descripcion: 'Impresionante pico calizo en los Picos de Europa.',
-      imagen: 'assets/images/montanas/friero.jpg',
-      altura: 2445
+      nombre: 'Yordas',
+      descripcion: 'Cima cercana destacada por sus rutas y miradores sobre el embalse.',
+      imagen: 'assets/images/montanas/yordas.jpg',
+      altura: 1964
     },
     {
-      nombre: 'Peña Santa',
-      descripcion: 'Una de las cumbres más elevadas del macizo occidental.',
-      imagen: 'assets/images/montanas/pena-santa.jpg',
-      altura: 2596
-    }
+      nombre: 'Las Pintas',
+      descripcion: 'Elevación próxima a Riaño, popular en senderismo local por sus panorámicas.',
+      imagen: 'assets/images/montanas/pintas.jpg',
+      altura: 1985
+    },
+    {
+      nombre: 'Pico Castaño',
+      descripcion: 'Cima cercana, frecuentada por senderistas locales.',
+      imagen: 'assets/images/montanas/pico-castano.jpg',
+      altura: 1865
+    },
+    {
+      nombre: 'Llerenes',
+      descripcion: 'Elevación próxima a Riaño, conocida por sus buenas panorámicas.',
+      imagen: 'assets/images/montanas/llerenes.jpg',
+      altura: 1874
+    },
+    
   ];
 
   bosques: ElementoNatural[] = [
