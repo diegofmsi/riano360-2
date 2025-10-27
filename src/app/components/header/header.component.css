@@ -4,6 +4,11 @@ mat-toolbar {
   left: 0;
   right: 0;
   z-index: 1000;
+  background-color: #33383c;
+  color: #efe9d5;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
 }
 
 .spacer {
@@ -11,9 +16,54 @@ mat-toolbar {
 }
 
 mat-toolbar a {
-  color: #EFE9D5;
+  color: #efe9d5;
   text-decoration: none;
   margin: 0 8px;
-  color:#33383c;
-  
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Botón hamburguesa (solo visible en móvil) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #efe9d5;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Menú móvil oculto por defecto */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #33383c;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  mat-toolbar {
+    justify-content: space-between;
+  }
+
+  mat-toolbar a {
+    display: block;
+    margin: 8px 0;
+  }
 }
